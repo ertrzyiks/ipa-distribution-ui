@@ -1,0 +1,9 @@
+{% extends "layout.nunjucks" %}
+
+{% block content %}
+  <h2>{{bundle.name}} - {{bundle.version}}</h2>
+
+  <a href="{{bundle.download_url}}" class="ui primary button">
+    <i class="cloud download icon"></i> Install
+  </a>
+{% endblock %}

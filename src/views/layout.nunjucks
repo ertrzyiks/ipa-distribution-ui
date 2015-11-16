@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}Bundles{% endblock %}</title>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.6/semantic.min.css">
+  <style>
+    body{
+      padding-top: 1em;
+    }
+  </style>
+</head>
+<body>
+  <div class="ui container">
+    <div class="ui segment">
+      {% block content %}
+      {% endblock %}
+    </div>
+  </div>
+</body>
+</html>
