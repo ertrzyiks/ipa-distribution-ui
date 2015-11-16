@@ -1,7 +1,7 @@
 {% extends "layout.nunjucks" %}
 
 {% block content %}
-  <h2 class="ui dividing header">Bundles</h2>
+  <h2 class="ui header">Bundles</h2>
 
   <div class="ui huge celled link relaxed list">
   {% for bundle in list %}
