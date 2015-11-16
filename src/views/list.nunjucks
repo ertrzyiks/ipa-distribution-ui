@@ -1,9 +1,9 @@
 {% extends "layout.nunjucks" %}
 
 {% block content %}
-  <h2 class="ui header">Bundles</h2>
+  <h2 class="ui dividing header">Bundles</h2>
 
-  <div class="ui huge divided link relaxed list">
+  <div class="ui huge celled link relaxed list">
   {% for bundle in list %}
     <a href="/bundles/{{bundle.id}}" class="item">
       <div class="content">
