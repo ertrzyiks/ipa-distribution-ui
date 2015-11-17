@@ -10,11 +10,9 @@
   </style>
 </head>
 <body>
-  <div class="ui container">
-    <div class="ui segment">
-      {% block content %}
-      {% endblock %}
-    </div>
+
+    {% block content %}
+    {% endblock %}
   </div>
 </body>
 </html>

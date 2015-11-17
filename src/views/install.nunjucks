@@ -1,9 +1,26 @@
-{% extends "layout.nunjucks" %}
+{% extends "layouts/layout.nunjucks" %}
 
 {% block content %}
-  <h2 class="ui header">{{bundle.name}} - {{bundle.version}}</h2>
+  <div class="ui middle aligned center aligned grid">
+    <div class="column" style="max-width: 450px">
+      <div class="ui blue segment">
 
-  <a href="{{bundle.download_url}}" class="ui primary button">
-    <i class="cloud download icon"></i> Install
-  </a>
+
+        <div class="ui message">
+          <h2 class="ui header">{{bundle.name}}</h2>
+
+          <p>
+            To install the application, open this page in Safari on your iOS device
+            and click <strong>Install</strong> button.
+          </p>
+
+          <span class="ui teal top right attached label">v{{bundle.version}}</span>
+        </div>
+
+        <a href="{{bundle.download_url}}" class="ui huge primary button">
+          <i class="cloud download icon"></i> Install
+        </a>
+      </div>
+    </div>
+  </div>
 {% endblock %}
