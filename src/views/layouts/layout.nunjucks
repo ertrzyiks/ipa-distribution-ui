@@ -12,7 +12,7 @@
     .ui.narrow.column {
        max-width: 450px;
     }
-    
+
     .description {
       font-size: 0.7em;
     }

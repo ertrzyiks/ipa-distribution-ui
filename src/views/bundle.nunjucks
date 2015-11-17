@@ -19,10 +19,6 @@
               <td>Version</td>
               <td>{{bundle.version}}</td>
             </tr>
-            <tr>
-              <td>Url</td>
-              <td>{{bundle.url}}</td>
-            </tr>
           </tbody>
         </table>
 
