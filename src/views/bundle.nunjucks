@@ -3,7 +3,24 @@
 {% block content %}
   <a href="/">back</a>
 
-  <h2 class="ui header">{{bundle.name}} - {{bundle.version}}</h2>
+  <h2 class="ui header">{{bundle.name}}</h2>
+
+  <table class="ui celled table">
+    <tbody>
+      <tr>
+        <td>App ID</td>
+        <td>{{bundle.app_id}}</td>
+      </tr>
+      <tr>
+        <td>Version</td>
+        <td>{{bundle.version}}</td>
+      </tr>
+      <tr>
+        <td>Url</td>
+        <td>{{bundle.url}}</td>
+      </tr>
+    </tbody>
+  </table>
 
   <a href="/bundles/{{bundle.id}}/install" class="ui primary button">
     Install page
@@ -14,7 +31,7 @@
     <input type="hidden" name="alias">
 
     <button type="submit" class="ui button">
-      <i class="linkify icon"></i> Tiny url
+      <i class="linkify icon"></i> Tiny url to install page
     </button>
   </form>
 {% endblock %}
