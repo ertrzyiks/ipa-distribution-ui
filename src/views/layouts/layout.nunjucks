@@ -9,10 +9,10 @@
       padding-top: 1em;
     }
 
-    .narrow.column {
+    .ui.narrow.column {
        max-width: 450px;
     }
-
+    
     .description {
       font-size: 0.7em;
     }
