@@ -15,12 +15,12 @@
 
   <div class="row">
       <div class="column">
-        <div class="ui huge celled link relaxed list">
+        <div class="ui huge divided link relaxed list">
         {% for bundle in list %}
           <a href="/bundles/{{bundle.id}}" class="item">
             <div class="content">
-              <div class="header">{{bundle.name}} v{{bundle.version}}</div>
-              <div class="description"><i class="calendar icon"></i> {{bundle.created_at}}</div>
+              <div class="header">{{bundle.name}} <span class="ui tiny horizontal teal label">v{{bundle.version}}</span></div>
+              <div class="tiny description"><i class="calendar icon"></i> {{bundle.created_at}}</div>
             </div>
           </a>
         {% endfor %}

@@ -3,7 +3,9 @@
 {% block inner_content %}
   <div class="row">
       <div class="column">
-        <a href="/">back</a>
+        <a href="/" class="ui small basic button">
+          <i class="left caret icon"></i>Back
+        </a>
 
         <h2 class="ui header">{{bundle.name}}</h2>
 
@@ -25,15 +27,15 @@
         </table>
 
         <a href="/bundles/{{bundle.id}}/install" class="ui primary button">
-          Install page
+          <i class="world icon"></i> See install page
         </a>
 
         <form method="POST" action="http://tinyurl.com/create.php" style="display: inline">
           <input type="hidden" name="url" value="{{BASE_URL}}/bundles/{{bundle.id}}/install">
           <input type="hidden" name="alias">
 
-          <button type="submit" class="ui button">
-            <i class="linkify icon"></i> Tiny url to install page
+          <button type="submit" class="ui olive button">
+            <i class="linkify icon"></i> Request tiny url
           </button>
         </form>
       </div>

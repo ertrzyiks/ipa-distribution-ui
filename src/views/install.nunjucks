@@ -2,7 +2,7 @@
 
 {% block content %}
   <div class="ui middle aligned center aligned grid">
-    <div class="column" style="max-width: 450px">
+    <div class="narrow column">
       <div class="ui blue segment">
 
 
