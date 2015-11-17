@@ -1,9 +1,20 @@
 {% extends "layout.nunjucks" %}
 
 {% block content %}
+  <a href="/">back</a>
+
   <h2 class="ui header">{{bundle.name}} - {{bundle.version}}</h2>
 
-  <a href="{{bundle.download_url}}" class="ui primary button">
-    <i class="cloud download icon"></i> Install
+  <a href="/bundles/{{bundle.id}}/install" class="ui primary button">
+    Install page
   </a>
+
+  <form method="POST" action="http://tinyurl.com/create.php" style="display: inline">
+    <input type="hidden" name="url" value="{{BASE_URL}}/bundles/{{bundle.id}}/install">
+    <input type="hidden" name="alias">
+
+    <button type="submit" class="ui button">
+      <i class="linkify icon"></i> Tiny url
+    </button>
+  </form>
 {% endblock %}
