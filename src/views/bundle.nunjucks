@@ -17,6 +17,12 @@
           <td>Version</td>
           <td>{{bundle.version}}</td>
         </tr>
+        <tr>
+          <td>Application url</td>
+          <td>
+            <a href="{{bundle.url}}">{{bundle.url | truncate(32, True, '...ipa')}}</a>
+          </td>
+        </tr>
       </tbody>
     </table>
 
