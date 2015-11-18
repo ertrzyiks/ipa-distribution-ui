@@ -4,6 +4,7 @@ import consolidate from 'consolidate'
 import Bundle from './model/bundle';
 
 var BASE_URL = process.env.BASE_URL;
+var LOTTERY_CHANCE = process.env.LOTTERY_CHANCE || 0
 
 var app = express();
 app.engine('nunjucks', consolidate.nunjucks);
@@ -16,6 +17,14 @@ app.use('/themes', express.static(__dirname + '/../themes'));
 function prepareBundleObject(bundle) {
     bundle.created_at = moment(bundle.created_at).calendar();
     return bundle;
+}
+
+function getBaseColor(chance) {
+    if ((Math.random() * 100) < chance) {
+        return 'pink';
+    }
+
+    return 'blue';
 }
 
 app.get('/bundles/:id', (req, res) => {
@@ -33,11 +42,14 @@ app.get('/bundles/:id', (req, res) => {
 app.get('/bundles/:id/install', (req, res) => {
     let id = req.params.id;
 
+    let baseColor = getBaseColor(LOTTERY_CHANCE);
+
     Bundle.get(id).then(bundle => {
 
         res.render('install', {
             BASE_URL: BASE_URL,
-            bundle: prepareBundleObject(bundle)
+            bundle: prepareBundleObject(bundle),
+            baseColor
         });
     });
 });

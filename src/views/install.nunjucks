@@ -3,8 +3,7 @@
 {% block subtitle %} - {{bundle.name}}{% endblock %}
 
 {% block inner_content %}
-  <div class="ui blue segment">
-
+  <div class="ui {{baseColor}} segment">
 
     <div class="ui message">
       <h2 class="ui header">{{bundle.name}}</h2>
@@ -17,7 +16,7 @@
       <span class="ui teal top right attached label">v{{bundle.version}}</span>
     </div>
 
-    <a href="{{bundle.download_url}}" class="ui huge primary button">
+    <a href="{{bundle.download_url}}" class="ui huge {{baseColor}} button">
       <i class="cloud download icon"></i> Install
     </a>
   </div>
