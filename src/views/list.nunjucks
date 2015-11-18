@@ -20,7 +20,13 @@
           <a href="/bundles/{{bundle.id}}" class="item">
             <div class="content">
               <div class="header">{{bundle.name}} <span class="ui tiny horizontal teal label">v{{bundle.version}}</span></div>
-              <div class="tiny description"><i class="calendar icon"></i> {{bundle.created_at}}</div>
+                <div class="tiny description">
+                  {% if bundle.created_at %}
+                    <i class="calendar icon"></i> {{bundle.created_at}}
+                  {% else %}
+                    <i class="minus icon"></i>
+                  {% endif %}
+                </div>
             </div>
           </a>
         {% endfor %}

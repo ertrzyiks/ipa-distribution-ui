@@ -28,3 +28,4 @@ node_modules
 .env
 semantic.css
 semantic.min.css
+.idea
