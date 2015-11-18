@@ -1,39 +1,37 @@
-{% extends "layouts/fullsize-layout.nunjucks" %}
+{% extends "layouts/narrow-layout.nunjucks" %}
 
 {% block inner_content %}
-  <div class="row">
-      <div class="column">
-        <a href="/" class="ui small basic button">
-          <i class="left caret icon"></i>Back
-        </a>
+    <a href="/" class="ui small basic left floated button">
+      <i class="left caret icon"></i>Back
+    </a>
 
-        <h2 class="ui header">{{bundle.name}}</h2>
+    <h2 class="ui header">{{bundle.name}}</h2>
 
-        <table class="ui celled table">
-          <tbody>
-            <tr>
-              <td>App ID</td>
-              <td>{{bundle.app_id}}</td>
-            </tr>
-            <tr>
-              <td>Version</td>
-              <td>{{bundle.version}}</td>
-            </tr>
-          </tbody>
-        </table>
+    <table class="ui celled table">
+      <tbody>
+        <tr>
+          <td>App ID</td>
+          <td>{{bundle.app_id}}</td>
+        </tr>
+        <tr>
+          <td>Version</td>
+          <td>{{bundle.version}}</td>
+        </tr>
+      </tbody>
+    </table>
 
+    <form method="POST" action="http://tinyurl.com/create.php">
+      <div class="two ui buttons">
         <a href="/bundles/{{bundle.id}}/install" class="ui primary button">
-          <i class="world icon"></i> See install page
+          <i class="world icon"></i> Install page
         </a>
 
-        <form method="POST" action="http://tinyurl.com/create.php" style="display: inline">
-          <input type="hidden" name="url" value="{{BASE_URL}}/bundles/{{bundle.id}}/install">
-          <input type="hidden" name="alias">
+        <input type="hidden" name="url" value="{{BASE_URL}}/bundles/{{bundle.id}}/install">
+        <input type="hidden" name="alias">
 
-          <button type="submit" class="ui olive button">
-            <i class="linkify icon"></i> Request tiny url
-          </button>
-        </form>
+        <button type="submit" class="ui olive button">
+          <i class="linkify icon"></i> Tiny url
+        </button>
       </div>
-  </div>
+    </form>
 {% endblock %}

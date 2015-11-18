@@ -1,0 +1,12 @@
+{% extends "./layout.nunjucks" %}
+
+{% block content %}
+  <div class="ui container fluid">
+      <div class="ui middle aligned center aligned grid">
+        <div class="narrow column">
+          {% block inner_content %}
+          {% endblock %}
+      </div>
+    </div>
+  </div>
+{% endblock %}
