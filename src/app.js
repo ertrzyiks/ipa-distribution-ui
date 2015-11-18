@@ -4,7 +4,8 @@ import consolidate from 'consolidate'
 import Bundle from './model/bundle';
 
 var BASE_URL = process.env.BASE_URL;
-var LOTTERY_CHANCE = process.env.LOTTERY_CHANCE || 0
+var LOTTERY_CHANCE = process.env.LOTTERY_CHANCE || 0;
+LOTTERY_CHANCE = parseInt(LOTTERY_CHANCE, 10);
 
 var app = express();
 app.engine('nunjucks', consolidate.nunjucks);
