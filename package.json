@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prestart": "lessc ./src/less/semantic.less ./public/semantic.css",
+    "compile": "lessc ./src/less/semantic.less ./public/semantic.css",
+    "minify": "uglifycss ./public/semantic.css > ./public/semantic.min.css",
+    "prestart": "npm run compile && npm run minify",
     "start": "node index"
   },
   "repository": {
@@ -30,6 +32,7 @@
     "nunjucks": "^2.1.0",
     "semantic-ui-less": "^2.1.6",
     "superagent": "^1.4.0",
-    "superagent-promise": "^1.0.3"
+    "superagent-promise": "^1.0.3",
+    "uglifycss": "0.0.18"
   }
 }
