@@ -6,11 +6,11 @@
   <link rel="stylesheet" type="text/css" href="/public/semantic.min.css">
 
   <style>
-    body{
+    body {
       padding-top: 1em;
     }
 
-    .ui.narrow.column {
+    .narrow.column {
        max-width: 450px;
     }
 
