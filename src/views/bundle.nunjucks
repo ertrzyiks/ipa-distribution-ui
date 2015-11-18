@@ -1,5 +1,7 @@
 {% extends "layouts/narrow-layout.nunjucks" %}
 
+{% block subtitle %} - {{bundle.name}}{% endblock %}
+
 {% block inner_content %}
     <a href="/" class="ui small basic left floated button">
       <i class="left caret icon"></i>Back

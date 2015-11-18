@@ -1,5 +1,7 @@
 {% extends "layouts/narrow-layout.nunjucks" %}
 
+{% block subtitle %} - {{bundle.name}}{% endblock %}
+
 {% block inner_content %}
   <div class="ui blue segment">
 
