@@ -10,7 +10,7 @@
 
       <p>
         To install the application, open this page in Safari on your iOS device
-        and click <strong>Install</strong> button.
+        and click the <strong>Install</strong> button.
       </p>
 
       <span class="ui teal top right attached label">v{{bundle.version}}</span>
