@@ -1,8 +1,10 @@
-{% extends "layouts/narrow-layout.nunjucks" %}
+{% extends "layouts/fullsize-layout.nunjucks" %}
 
 {% block subtitle %} - {{bundle.name}}{% endblock %}
 
 {% block inner_content %}
+<div class="row">
+  <div class="column">
     <a href="/" class="ui small basic left floated button">
       <i class="left caret icon"></i>Back
     </a>
@@ -25,21 +27,21 @@
             <a href="{{bundle.url}}">{{bundle.url | truncate(32, True, '...ipa')}}</a>
           </td>
         </tr>
+        <tr>
+          <td>Installation url</td>
+            <td>
+              <div class="ui disabled input">
+                <input type="text" value="{{installUrl}}">
+              </div>
+            </td>
+        </tr>
       </tbody>
     </table>
 
-    <form method="POST" action="http://tinyurl.com/create.php">
-      <div class="two ui buttons">
-        <a href="/bundles/{{bundle.id}}/install" class="ui primary button">
-          <i class="world icon"></i> Install page
-        </a>
+    <a href="/bundles/{{bundle.id}}/install" class="ui primary button">
+      <i class="world icon"></i> Go to installation page
+    </a>
+  </div>
+</div>
 
-        <input type="hidden" name="url" value="{{BASE_URL}}/bundles/{{bundle.id}}/install">
-        <input type="hidden" name="alias">
-
-        <button type="submit" class="ui olive button">
-          <i class="linkify icon"></i> Tiny url
-        </button>
-      </div>
-    </form>
 {% endblock %}

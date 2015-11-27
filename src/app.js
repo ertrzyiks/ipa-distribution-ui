@@ -2,9 +2,10 @@ import express from 'express';
 import moment from 'moment';
 import consolidate from 'consolidate'
 import Bundle from './model/bundle';
+import getShortUrl from './url_shortener';
 
-var BASE_URL = process.env.BASE_URL;
-var LOTTERY_CHANCE = process.env.LOTTERY_CHANCE || 0;
+let BASE_URL = process.env.BASE_URL;
+let LOTTERY_CHANCE = process.env.LOTTERY_CHANCE || 0;
 LOTTERY_CHANCE = parseInt(LOTTERY_CHANCE, 10);
 
 var app = express();
@@ -31,15 +32,28 @@ function getBaseColor(chance) {
     return 'blue';
 }
 
+
+
 app.get('/bundles/:id', (req, res) => {
     let id = req.params.id;
 
     Bundle.get(id).then(bundle => {
-
-        res.render('bundle', {
-            BASE_URL: BASE_URL,
-            bundle: prepareBundleObject(bundle)
-        });
+        let longUrl = `${BASE_URL}/bundles/${bundle.id}/install`;
+        getShortUrl(longUrl)
+            .then(shortInstallUrl => {
+                res.render('bundle', {
+                    BASE_URL: BASE_URL,
+                    bundle: prepareBundleObject(bundle),
+                    installUrl: shortInstallUrl
+                });
+            })
+            .catch(() => {
+                res.render('bundle', {
+                    BASE_URL: BASE_URL,
+                    bundle: prepareBundleObject(bundle),
+                    installUrl: longUrl
+                });
+            });
     });
 });
 
@@ -49,7 +63,6 @@ app.get('/bundles/:id/install', (req, res) => {
     let baseColor = getBaseColor(LOTTERY_CHANCE);
 
     Bundle.get(id).then(bundle => {
-
         res.render('install', {
             BASE_URL: BASE_URL,
             bundle: prepareBundleObject(bundle),

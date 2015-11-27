@@ -29,6 +29,8 @@
     "express": "^4.13.3",
     "less": "^2.5.3",
     "moment": "^2.10.6",
+    "node-bitlyapi": "^0.4.0",
+    "node-cache": "^3.0.0",
     "nunjucks": "^2.1.0",
     "semantic-ui-less": "^2.1.6",
     "superagent": "^1.4.0",
