@@ -29,6 +29,10 @@
                 </div>
             </div>
           </a>
+        {% else %}
+        <div class="ui info message">
+          No bundles to display :(
+        </div>
         {% endfor %}
       </div>
     </div>
