@@ -52,6 +52,10 @@ function getShortUrl(longUrl) {
 }
 
 export default function (longUrl) {
+    if (!BITLY_ACCESS_TOKEN) {
+        return Promise.resolve(longUrl);
+    }
+
     return getFromCache(longUrl)
         .then((shortUrl) => {
             if (shortUrl) {
