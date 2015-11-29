@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "compile": "lessc ./src/less/semantic.less ./public/semantic.css",
-    "minify": "uglifycss ./public/semantic.css > ./public/semantic.min.css",
+    "compile": "lessc ./src/less/semantic.less ./public/css/semantic.css",
+    "minify": "uglifycss ./public/css/semantic.css > ./public/css/semantic.min.css",
     "prestart": "npm run compile && npm run minify",
     "start": "node index"
   },

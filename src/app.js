@@ -13,7 +13,7 @@ app.engine('nunjucks', consolidate.nunjucks);
 app.set('view engine', 'nunjucks');
 app.set('views', __dirname + '/views');
 
-app.use('/public', express.static(__dirname + '/../public'));
+app.use('/', express.static(__dirname + '/../public'));
 app.use('/themes', express.static(__dirname + '/../themes'));
 
 function prepareBundleObject(bundle) {
