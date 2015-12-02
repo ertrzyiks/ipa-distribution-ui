@@ -1,6 +1,6 @@
 {% extends "layouts/fullsize-layout.nunjucks" %}
 
-{% block subtitle %} - {{bundle.name}}{% endblock %}
+{% block subtitle %} - {{bundle.name}} {{bundle.version}}{% endblock %}
 
 {% block inner_content %}
 <div class="row">
