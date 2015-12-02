@@ -2,7 +2,7 @@ import express from 'express';
 import moment from 'moment';
 import consolidate from 'consolidate'
 import Bundle from './model/bundle';
-import getShortUrl from './url_shortener';
+import getShortUrl from './urlShortener';
 
 let BASE_URL = process.env.BASE_URL;
 let LOTTERY_CHANCE = process.env.LOTTERY_CHANCE || 0;
@@ -31,8 +31,6 @@ function getBaseColor(chance) {
 
     return 'blue';
 }
-
-
 
 app.get('/bundles/:id', (req, res) => {
     let id = req.params.id;

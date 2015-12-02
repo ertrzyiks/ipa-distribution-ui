@@ -7,8 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "lessc ./src/less/semantic.less ./public/css/semantic.css",
     "minify": "uglifycss ./public/css/semantic.css > ./public/css/semantic.min.css",
-    "prestart": "npm run compile && npm run minify",
-    "start": "node index"
+    "build": "npm run compile && npm run minify",
+    "prestart": "npm run migrate && npm run build",
+    "start": "node index",
+    "migrate": "knex migrate:latest"
   },
   "repository": {
     "type": "git",
@@ -27,12 +29,15 @@
     "defaults": "^1.0.3",
     "dotenv": "^1.2.0",
     "express": "^4.13.3",
+    "knex": "^0.9.0",
     "less": "^2.5.3",
     "moment": "^2.10.6",
     "node-bitlyapi": "^0.4.0",
     "node-cache": "^3.0.0",
+    "node-persist": "0.0.8",
     "nunjucks": "^2.1.0",
     "semantic-ui-less": "^2.1.6",
+    "sqlite3": "^3.1.1",
     "superagent": "^1.4.0",
     "superagent-promise": "^1.0.3",
     "uglifycss": "0.0.18"

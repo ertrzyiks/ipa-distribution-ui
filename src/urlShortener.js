@@ -1,36 +1,33 @@
 import Promise from 'bluebird';
 import BitlyAPI from 'node-bitlyapi';
-import NodeCache from 'node-cache';
+import path from 'path';
+import getDataConnector from './getDataConnector';
+
+let knex = getDataConnector();
 
 let BITLY_ACCESS_TOKEN = process.env.BITLY_ACCESS_TOKEN;
 
 let Bitly = new BitlyAPI();
 Bitly.setAccessToken(BITLY_ACCESS_TOKEN);
 
-let urlCache = new NodeCache({ stdTTL: 1000, checkperiod: 1200 });
-
-function getFromCache(key) {
-    return new Promise((resolve, reject) => {
-        urlCache.get(key, (err, value) => {
-            if (err) {
-                return reject(err);
-            }
-
-            return resolve(value);
-        });
-    });
+function getFromCache(longUrl) {
+    return knex
+        .from('urls')
+        .where({
+            long_url: longUrl
+        })
+        .first('short_url')
+        .then(item => (item && item.short_url))
 }
 
-function saveToCache(key, value) {
-    return new Promise((resolve, reject) => {
-        urlCache.set(key, value, (err, success) => {
-            if (err || !success) {
-                return reject(err);
-            }
-
-            return resolve(value);
-        });
-    });
+function saveToCache(longUrl, shortUrl) {
+    return knex
+        .insert({
+            long_url: longUrl,
+            short_url: shortUrl
+        })
+        .into('urls')
+        .then(() => shortUrl)
 }
 
 function getShortUrl(longUrl) {
